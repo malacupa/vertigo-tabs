@@ -54,5 +54,24 @@ some attention.
  - atool
  - stylus
 
+## Setup
+
+Inside profile:
+```
+mkdir chrome
+touch userChrome.css
+```
+
+userProfile contents:
+```
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+  opacity: 0;
+  pointer-events: none;
+}
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+```
+
 # License
 Released under the GNU Public License v3
