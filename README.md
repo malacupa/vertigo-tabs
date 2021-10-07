@@ -49,6 +49,10 @@ with these additional goals in mind:
 [bugzilla#1320332](https://bugzilla.mozilla.org/show_bug.cgi?id=1320332) receive
 some attention.
 
+## Build with
+
+ - atool
+ - stylus
 
 # License
 Released under the GNU Public License v3

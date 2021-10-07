@@ -8,11 +8,5 @@ source:
 	apack vertigo_tabs_source.zip vertigo_tabs_source/*
 	rm -rfv vertigo_tabs_source/
 
-manifest.json: manifest.yaml
-	yq . $< > $@
-
-panel.html: panel.pug
-	pug $<
-
 panel.css: panel.styl
 	stylus < $< > $@

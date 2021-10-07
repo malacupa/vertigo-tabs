@@ -1,0 +1,120 @@
+html,
+body {
+  min-height: 100vh;
+}
+body {
+  background-color: Menu;
+  color: MenuText;
+  font: menu;
+  display: flex;
+}
+@media (prefers-color-scheme: dark) {
+  body.windows,
+  body.linux90 {
+    background-color: MenuText;
+    color: Menu;
+  }
+  body.windows .loaded > span,
+  body.linux90 .loaded > span {
+    color: Menu;
+  }
+  body.windows .audible > .soundicon,
+  body.linux90 .audible > .soundicon {
+    background-color: Menu;
+  }
+  body.windows #drag-line,
+  body.linux90 #drag-line {
+    border-top: dashed 1px Menu;
+  }
+}
+#tabs {
+  margin: 0;
+  padding: 0;
+}
+.tab {
+  display: flex;
+  width: 100%;
+  padding: 1px 6px;
+  list-style: none;
+}
+.favicon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  flex: none;
+  margin-right: 8px;
+  opacity: 0.7;
+  will-change: transform;
+  position: relative;
+}
+.favicon > img {
+  width: 16px;
+  height: 16px;
+}
+.no-favicon {
+  position: relative;
+}
+.no-favicon:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: MenuText;
+}
+.no-favicon > img {
+  display: none;
+}
+span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  align-self: center;
+  color: GrayText;
+  flex: 1;
+}
+.audible > .soundicon {
+  content: ' ';
+  display: block;
+  flex: none;
+  width: 1.4em;
+  height: 1.4em;
+  background-color: MenuText;
+  mask: url("tab-audio-playing.svg");
+}
+.audible.muted > .soundicon {
+  mask: url("tab-audio-muted.svg");
+}
+.loaded > .favicon {
+  opacity: 1;
+}
+.loaded > span {
+  color: MenuText;
+}
+.highlighted {
+  background-color: Highlight;
+}
+.highlighted > span {
+  color: HighlightText;
+}
+.highlighted > .soundicon {
+  background-color: HighlightText;
+}
+.highlighted .no-favicon:before {
+  background-color: HighlightText;
+}
+#drag-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  border-top: dashed 1px MenuText;
+  width: 100%;
+}
+#empty-space {
+  flex-grow: 1;
+}
+
