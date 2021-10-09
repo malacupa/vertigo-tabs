@@ -23,5 +23,10 @@
         "default": "Ctrl+Y"
       }
     }
-  }
+  },
+	"browser_specific_settings": {
+	  "gecko": {
+	    "id": "vertigotabs@example.org"
+	  }
+	}
 }

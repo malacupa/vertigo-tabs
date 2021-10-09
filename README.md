@@ -1,4 +1,4 @@
-# ![icon](icon48.png "Vertigo tabs") Vertigo tabs
+# ![icon](icon48.png "Vertigo tabs") Vertigo tabs - fork
 This WebExtension is a vertical tab list using the new Sidebar API in Firefox.
 It has not been tested on other browsers.
 
@@ -64,12 +64,19 @@ touch userChrome.css
 
 userProfile contents:
 ```
+/* hide top tabs bar */
 #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
   opacity: 0;
   pointer-events: none;
 }
 #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
     visibility: collapse !important;
+}
+
+/* hide Vertigo Tabs extension header in the sidebar */
+/* `vertigotabs_example_org` below is dynamic based on id in manifest.json */                             
+#sidebar-box[sidebarcommand="vertigotabs_example_org-sidebar-action"] #sidebar-header {
+  display: none !important;
 }
 ```
 
