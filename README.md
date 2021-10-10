@@ -78,6 +78,15 @@ userProfile contents:
 #sidebar-box[sidebarcommand="vertigotabs_example_org-sidebar-action"] #sidebar-header {
   display: none !important;
 }
+
+/* for Windows: hide window bar and minimize, max, close buttons in the bar */
+.titlebar-min {display: none!important;}
+.titlebar-max {display: none!important;}
+.titlebar-restore {display: none!important;}
+.titlebar-close {display: none!important;}
+#titlebar {
+  visibility: collapse;
+}
 ```
 
 # License
