@@ -3,7 +3,7 @@ body {
   min-height: 100vh;
 }
 body {
-  background-color: Menu;
+  background-color: #444;
   color: MenuText;
   font: menu;
   display: flex;
@@ -11,20 +11,6 @@ body {
 @media (prefers-color-scheme: dark) {
   body.windows,
   body.linux90 {
-    background-color: MenuText;
-    color: Menu;
-  }
-  body.windows .loaded > span,
-  body.linux90 .loaded > span {
-    color: Menu;
-  }
-  body.windows .audible > .soundicon,
-  body.linux90 .audible > .soundicon {
-    background-color: Menu;
-  }
-  body.windows #drag-line,
-  body.linux90 #drag-line {
-    border-top: dashed 1px Menu;
   }
 }
 #tabs {
@@ -34,8 +20,9 @@ body {
 .tab {
   display: flex;
   width: 100%;
-  padding: 1px 6px;
+  padding: 1px 3px;
   list-style: none;
+	color: #fff;
 }
 .favicon {
   width: 16px;
@@ -73,7 +60,6 @@ span {
   text-overflow: ellipsis;
   overflow: hidden;
   align-self: center;
-  color: GrayText;
   flex: 1;
 }
 .audible > .soundicon {
@@ -90,9 +76,6 @@ span {
 }
 .loaded > .favicon {
   opacity: 1;
-}
-.loaded > span {
-  color: MenuText;
 }
 .highlighted {
   background-color: Highlight;

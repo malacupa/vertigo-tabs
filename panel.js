@@ -109,6 +109,16 @@ function scroll_into_view($el) {
     }
 }
 
+function set_favicon(tab_id, li) {
+	// set favicon again because loading it straight away doesn't always load the icon
+  browser.tabs.get(tab_id).then((tab) => {
+		console.log(li)
+		console.log(tab.favIconUrl)
+		li.querySelector('img').src = tab.favIconUrl
+		li.querySelector('div').classList.remove('no-favicon')
+	})
+}
+
 function fill_content() {
     browser.tabs.query({windowId: window_id}).then((window_tabs) => {
         $container.textContent = ""
@@ -116,6 +126,7 @@ function fill_content() {
         window_tabs.forEach((tab) => {
             var li = create_li(tab)
             $container.appendChild(li)
+						setTimeout(function () {set_favicon(tab['id'], li)}, 2000);
         })
         let $current_tab = tabs_by_id[current_tab_id]
         scroll_into_view($current_tab)
@@ -153,6 +164,8 @@ function on_update_tab(tabId, changes, state) {
     if (changes.status == "loading") {
         favicon.children[0].src = "loading.png"
         favicon.classList.remove("no-favicon")
+				li = document.querySelector(`li[data-id="${tabId}"]`)
+				setTimeout(function () {set_favicon(tabId, li)}, 2000);
     }
     if (changes.title) {
         $tab.children[1].textContent = changes.title
