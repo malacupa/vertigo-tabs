@@ -46,6 +46,7 @@ function ensure_sound_icon_is_present($tab) {
     }
 }
 
+
 function create_li(tab) {
     var li = $create("li")
 
@@ -78,9 +79,25 @@ function create_li(tab) {
     favicon.appendChild(img)
     li.appendChild(favicon)
 
+    var closeBtnDiv = $create("div")
+		var closeBtn = $create("img")
+		closeBtn.src = "data:image/x-icon;base64,AAABAAEAFBQCAAEAAQDQAAAAFgAAACgAAAAUAAAAKAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADUALQAAAAAAP//8ADf/7AAz/8wAMf+MADj/HAA8fjwAPjx8AD8Y/AA/gfwAP8P8AD/D/AA/gfwAPxj8AD48fAA8fjwAOP8cADH/jAAz/8wAN//sAD///AA///wAN//sADP/zAAx/4wAOP8cADx+PAA+PHwAPxj8AD+B/AA/w/wAP8P8AD+B/AA/GPwAPjx8ADx+PAA4/xwAMf+MADP/zAA3/+wAP//8AA="
+		closeBtn.className = "close"
+		closeBtn.width =  "18"
+		closeBtn.height = "18"
+		closeBtn.style.display = "none"
+		closeBtn.onclick = function () {
+			browser.tabs.remove(tab.id)
+			li.remove()
+			delete tabs_by_id[tab.id]
+		}
+		closeBtnDiv.appendChild(closeBtn)
+
+
     var title = $create("span")
     title.textContent = tab.title
     li.appendChild(title)
+		li.appendChild(closeBtnDiv)
 
     if (tab.mutedInfo.reason || tab.audible) {
         ensure_sound_icon_is_present(li)
@@ -91,6 +108,14 @@ function create_li(tab) {
 
     add_drag_events(li)
     li.addEventListener("mousedown", on_tab_click)
+
+		li.onmouseover = function () {
+			this.querySelector("div img.close").style.display = "block"
+		}
+		li.onmouseleave = function () {
+			this.querySelector("div img.close").style.display = "none"
+		}
+
     return li
 }
 

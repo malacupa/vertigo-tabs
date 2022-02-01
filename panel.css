@@ -100,4 +100,7 @@ span {
 #empty-space {
   flex-grow: 1;
 }
-
+img.close {
+	cursor: pointer;
+	display: none;
+}

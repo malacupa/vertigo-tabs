@@ -1,1 +1,5 @@
 vertigo_tabs.zip
+node_modules/
+package-lock.json
+package.json
+web-ext-artifacts/

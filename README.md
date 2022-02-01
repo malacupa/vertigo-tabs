@@ -52,7 +52,24 @@ some attention.
 ## Build with
 
  - atool
- - stylus
+
+Debugging:
+```
+# build
+make
+# load at about:debugging#/runtime/this-firefox
+# hit Inspect to debug
+```
+
+Production version:
+```
+# go to https://addons.mozilla.org/en-US/developers/addon/api/key/ & login
+# copy API KEY & SECRET from there
+npm install web-ext
+node node_modules/web-ext/bin/web-ext sign --channel unlisted --api-key="yyyy" --api-secret="xxx" --channel unlisted
+
+# load generated .xpi file using about:addons -> Install Add-on From File...
+```
 
 ## Setup
 

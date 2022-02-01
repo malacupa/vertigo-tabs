@@ -7,6 +7,3 @@ source:
 	(cd vertigo_tabs_source && git clone --depth=1 ../ ./)
 	apack vertigo_tabs_source.zip vertigo_tabs_source/*
 	rm -rfv vertigo_tabs_source/
-
-panel.css: panel.styl
-	stylus < $< > $@
