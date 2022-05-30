@@ -76,10 +76,10 @@ node node_modules/web-ext/bin/web-ext sign --channel unlisted --api-key="yyyy" -
 Inside profile:
 ```
 mkdir chrome
-touch userChrome.css
+touch chrome/userChrome.css
 ```
 
-userProfile contents:
+userChrome.css contents:
 ```
 /* hide top tabs bar */
 #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
